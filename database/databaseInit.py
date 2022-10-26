@@ -1,4 +1,3 @@
-import pandas as pd
 import sqlite3
 
 # DATABASE
@@ -22,13 +21,14 @@ c.execute('''
 
 c.execute('''
         CREATE TABLE IF NOT EXISTS registers
-        ([id] INTEGER PRIMARY KEY, 
+        (
+        [id] INTEGER PRIMARY KEY, 
         [activity_id] INTEGER,
         [subject_id] INTEGER,
-        [start_date] DATE,
-        [end_date] DATE,
-        FOREIGN KEY (activity_id) REFERENCES activities (activity_id), 
-        FOREIGN KEY (subject_id) REFERENCES subjects (subject_id)
+        [start_date] TIMESTAMP,
+        [end_date] TIMESTAMP,
+        FOREIGN KEY (activity_id) REFERENCES activities(activity_id), 
+        FOREIGN KEY (subject_id) REFERENCES subjects(subject_id)
         )
         ''')
 
